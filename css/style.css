@@ -479,11 +479,45 @@ li[class^="toggle-item-"] a:hover{
       .error {
         color: #ec1c24;
       }
-      .headingov1{
-        font-size: 40px;
+      .headingov1 h4{
+        font-size: 45px;
+        justify-content: center;
+        text-align: center;
+        color: #415565;
+      }
+      .headingov1 h3{
+        font-size: 45px;
+        color: #415565;
       }
       .content1{
-        font-size: 30px;
+        margin: 10px;
+        font: inherit;
+        justify-content: center;
+        color: rgb(61, 57, 57);
       }
-      
-      
+      .content1 ul {
+        columns: 3;
+        -webkit-columns: 3;
+        -moz-columns: 3;
+        list-style-type: none;
+    }
+    .content1 ol, li, ul {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    user agent stylesheet
+    .content1 ul {
+        display: block;
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+    .contentoverview{
+      font-size: 25px;
+    }
