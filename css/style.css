@@ -479,5 +479,11 @@ li[class^="toggle-item-"] a:hover{
       .error {
         color: #ec1c24;
       }
+      .headingov1{
+        font-size: 40px;
+      }
+      .content1{
+        font-size: 30px;
+      }
       
       
