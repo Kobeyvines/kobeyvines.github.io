@@ -1,0 +1,36 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-100 dark:bg-slate-900 mt-20 py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <h3 class="font-semibold text-slate-900 dark:text-white mb-4">About</h3>
+        <p class="text-slate-600 dark:text-slate-400">
+          A portfolio showcasing projects and blog posts.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Links</h3>
+        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+          <li><a href="/" class="hover:text-blue-600">Home</a></li>
+          <li><a href="/blog" class="hover:text-blue-600">Blog</a></li>
+          <li><a href="/projects" class="hover:text-blue-600">Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 dark:text-white mb-4">Social</h3>
+        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+          <li><a href="#" class="hover:text-blue-600">GitHub</a></li>
+          <li><a href="#" class="hover:text-blue-600">LinkedIn</a></li>
+          <li><a href="#" class="hover:text-blue-600">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-slate-300 dark:border-slate-700 mb-8" />
+    <p class="text-center text-slate-600 dark:text-slate-400">
+      &copy; {currentYear} Your Name. All rights reserved.
+    </p>
+  </div>
+</footer>

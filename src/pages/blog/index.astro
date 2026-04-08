@@ -1,0 +1,46 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const allBlogPosts = await getCollection('blog');
+const sortedPosts = allBlogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const title = 'Blog';
+const description = 'Read my latest articles and insights';
+---
+
+<Layout title={title} description={description}>
+  <Header currentPath="/blog" />
+  
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Blog</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400">
+        Thoughts, stories, and ideas
+      </p>
+    </div>
+
+    {sortedPosts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedPosts.map(post => (
+          <BlogPostCard 
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            id={post.id}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-slate-600 dark:text-slate-400">No blog posts yet. Check back soon!</p>
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

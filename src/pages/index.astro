@@ -1,17 +1,89 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
 
+const allProjects = await getCollection('projects');
+const allBlogPosts = await getCollection('blog');
+
+const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 3);
+const recentBlogPosts = allBlogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Home - Portfolio" description="Welcome to my portfolio">
+  <Header currentPath="/" />
+  
+  <main>
+    {/* Hero Section */}
+    <section class="max-w-6xl mx-auto px-4 py-20">
+      <div class="text-center mb-16">
+        <h1 class="text-5xl md:text-6xl font-bold text-slate-900 dark:text-white mb-4">
+          Welcome to My Portfolio
+        </h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400 mb-8">
+          Showcasing my projects, thoughts, and experiments
+        </p>
+        <div class="flex justify-center gap-4">
+          <a href="/projects" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-medium">
+            View Projects
+          </a>
+          <a href="/blog" class="bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white px-6 py-3 rounded-lg hover:bg-slate-300 dark:hover:bg-slate-700 transition font-medium">
+            Read Blog
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* Featured Projects */}
+    {featuredProjects.length > 0 && (
+      <section class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-200 dark:border-slate-700">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featuredProjects.map(project => (
+            <ProjectCard 
+              title={project.data.title}
+              description={project.data.description}
+              image={project.data.image}
+              link={project.data.link}
+              github={project.data.github}
+              tags={project.data.tags}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a href="/projects" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+            View All Projects →
+          </a>
+        </div>
+      </section>
+    )}
+
+    {/* Recent Blog Posts */}
+    {recentBlogPosts.length > 0 && (
+      <section class="max-w-6xl mx-auto px-4 py-16 border-t border-slate-200 dark:border-slate-700">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-8">Latest Blog Posts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {recentBlogPosts.map(post => (
+            <BlogPostCard 
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              id={post.id}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+        <div class="text-center mt-10">
+          <a href="/blog" class="text-blue-600 dark:text-blue-400 hover:underline font-medium">
+            Read More Posts →
+          </a>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About - Portfolio" description="Learn more about me">
+  <Header currentPath="/about" />
+  
+  <main class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-8">About Me</h1>
+    
+    <div class="prose dark:prose-invert max-w-none">
+      <p class="text-lg text-slate-600 dark:text-slate-400 mb-6">
+        Welcome! I'm a developer passionate about building beautiful, functional web applications and sharing what I learn along the way.
+      </p>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Background</h2>
+      <p class="text-slate-600 dark:text-slate-400 mb-6">
+        With experience in full-stack web development, I've worked on a variety of projects ranging from small personal projects to larger applications. I enjoy exploring new technologies and best practices in the web development space.
+      </p>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Skills & Technologies</h2>
+      <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 mb-6 space-y-2">
+        <li>JavaScript / TypeScript</li>
+        <li>React, Astro, Vue</li>
+        <li>Node.js, Express</li>
+        <li>TailwindCSS, CSS3</li>
+        <li>Git & GitHub</li>
+        <li>Web Performance & SEO</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Interests</h2>
+      <p class="text-slate-600 dark:text-slate-400 mb-6">
+        Beyond coding, I'm interested in open source contributions, technical writing, and mentoring others in web development. When I'm not coding, you can find me exploring new tools, reading technical articles, or contributing to communities.
+      </p>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Get In Touch</h2>
+      <p class="text-slate-600 dark:text-slate-400 mb-6">
+        Feel free to reach out if you have questions, collaboration ideas, or just want to chat about web development!
+      </p>
+      <div class="flex gap-4">
+        <a href="/contact" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition font-medium">
+          Contact Me
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-slate-800 text-white px-4 py-2 rounded hover:bg-slate-900 transition font-medium">
+          GitHub
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  link?: string;
+  github?: string;
+  tags?: string[];
+}
+
+const { title, description, image, link, github, tags = [] } = Astro.props;
+---
+
+<div class="bg-white dark:bg-slate-800 rounded-lg shadow hover:shadow-lg transition-shadow p-6">
+  {image && (
+    <img src={image} alt={title} class="w-full h-48 object-cover rounded-md mb-4" />
+  )}
+  <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+    {title}
+  </h3>
+  <p class="text-slate-600 dark:text-slate-400 mb-4">
+    {description}
+  </p>
+  {tags && tags.length > 0 && (
+    <div class="flex flex-wrap gap-2 mb-4">
+      {tags.map(tag => (
+        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+          {tag}
+        </span>
+      ))}
+    </div>
+  )}
+  <div class="flex gap-4">
+    {link && (
+      <a href={link} target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+        View Project →
+      </a>
+    )}
+    {github && (
+      <a href={github} target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
+        GitHub →
+      </a>
+    )}
+  </div>
+</div>

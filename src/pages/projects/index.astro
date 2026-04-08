@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const sortedProjects = allProjects.sort((a, b) => {
+  // Featured first, then alphabetical
+  if (a.data.featured !== b.data.featured) {
+    return (b.data.featured ? 1 : 0) - (a.data.featured ? 1 : 0);
+  }
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const title = 'Projects';
+const description = 'A collection of my work and projects';
+---
+
+<Layout title={title} description={description}>
+  <Header currentPath="/projects" />
+  
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <div class="mb-12">
+      <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Projects</h1>
+      <p class="text-lg text-slate-600 dark:text-slate-400">
+        A showcase of projects I've built and contributed to
+      </p>
+    </div>
+
+    {sortedProjects.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedProjects.map(project => (
+          <ProjectCard 
+            title={project.data.title}
+            description={project.data.description}
+            image={project.data.image}
+            link={project.data.link}
+            github={project.data.github}
+            tags={project.data.tags}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12">
+        <p class="text-slate-600 dark:text-slate-400">No projects yet. Check back soon!</p>
+      </div>
+    )}
+  </main>
+
+  <Footer />
+</Layout>
