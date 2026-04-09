@@ -1,7 +1,5 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
@@ -19,7 +17,6 @@ const description = 'A collection of my work and projects';
 ---
 
 <Layout title={title} description={description}>
-  <Header currentPath="/projects" />
   
   <main class="max-w-6xl mx-auto px-4 py-12">
     <div class="mb-12">
@@ -48,6 +45,4 @@ const description = 'A collection of my work and projects';
       </div>
     )}
   </main>
-
-  <Footer />
 </Layout>

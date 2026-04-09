@@ -1,32 +1,34 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
-const allBlogPosts = await getCollection('blog');
-const sortedPosts = allBlogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const title = 'Blog';
-const description = 'Read my latest articles and insights';
+// Get all posts and sort by date (newest first)
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
 ---
 
-<Layout title={title} description={description}>
-  <Header currentPath="/blog" />
-  
-  <main class="max-w-6xl mx-auto px-4 py-12">
-    <div class="mb-12">
-      <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Blog</h1>
-      <p class="text-lg text-slate-600 dark:text-slate-400">
-        Thoughts, stories, and ideas
-      </p>
-    </div>
+<Layout 
+  title="Blog | Brian Kuria" 
+  description="Technical insights on Data Science, Python engineering, and AWS Cloud Architecture."
+>
+  <div class="w-full flex flex-col items-center">
+    
+    <main class="w-full max-w-6xl mx-auto px-4 py-20">
+      
+      <header class="max-w-3xl mb-16">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+          Engineering <span class="text-blue-600 dark:text-blue-400">Insights</span>
+        </h1>
+        <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+          Documenting my journey through <strong>data science pipelines</strong>, cloud infrastructure, and the occasional <strong>LeetCode</strong> challenge.
+        </p>
+      </header>
 
-    {sortedPosts.length > 0 ? (
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedPosts.map(post => (
-          <BlogPostCard 
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+        {posts.map((post) => (
+          <BlogPostCard
             title={post.data.title}
             description={post.data.description}
             date={post.data.date}
@@ -35,12 +37,13 @@ const description = 'Read my latest articles and insights';
           />
         ))}
       </div>
-    ) : (
-      <div class="text-center py-12">
-        <p class="text-slate-600 dark:text-slate-400">No blog posts yet. Check back soon!</p>
-      </div>
-    )}
-  </main>
 
-  <Footer />
+      {posts.length === 0 && (
+        <div class="w-full py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
+          <p class="text-slate-500 italic text-lg">No insights published yet. Check back soon!</p>
+        </div>
+      )}
+
+    </main>
+  </div>
 </Layout>

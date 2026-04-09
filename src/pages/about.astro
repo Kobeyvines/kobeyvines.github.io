@@ -1,54 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="About - Portfolio" description="Learn more about me">
-  <Header currentPath="/about" />
-  
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-8">About Me</h1>
+<Layout title="About Brian Kuria | Cloud & Data Science" description="The journey from Information Technology to Cloud Architecture and Data Science.">
+  <main class="max-w-3xl mx-auto px-4 py-20">
+    <header class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
+        The bridge between <span class="text-blue-600 dark:text-blue-400">infrastructure</span> and <span class="text-cyan-500">intelligence.</span>
+      </h1>
+      <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
+        I’m an IT professional turned Data Scientist. My goal is to build machine learning systems that are not just accurate, but production-ready and scalable.
+      </p>
+    </header>
     
-    <div class="prose dark:prose-invert max-w-none">
-      <p class="text-lg text-slate-600 dark:text-slate-400 mb-6">
-        Welcome! I'm a developer passionate about building beautiful, functional web applications and sharing what I learn along the way.
+    <div class="prose prose-slate dark:prose-invert max-w-none">
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">The Journey</h2>
+      <p>
+        With a degree in <strong>Information Technology</strong>, I started with a deep fascination for how systems scale. This led me to become an <strong>AWS Certified Solutions Architect & Practitioner</strong>, where I learned to build the "pipes" that run the modern web.
+      </p>
+      <p>
+        However, I realized that the most exciting part of the infrastructure wasn't just the scaling—it was the data flowing through it. This sparked my transition into <strong>Data Science</strong> through the <strong>ALX Data Science program</strong>, where I began applying statistical rigor to real-world problems.
       </p>
 
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Background</h2>
-      <p class="text-slate-600 dark:text-slate-400 mb-6">
-        With experience in full-stack web development, I've worked on a variety of projects ranging from small personal projects to larger applications. I enjoy exploring new technologies and best practices in the web development space.
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-12">
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Cloud Mastery</h3>
+          <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
+            <li>• AWS Certified Solutions Architect</li>
+            <li>• Scalable Backend Architectures</li>
+            <li>• FastAPI & API Deployment</li>
+            <li>• PostgreSQL & Database Design</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-cyan-600 dark:text-cyan-400 mb-2">Data Science</h3>
+          <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
+            <li>• Predictive Modeling (Scikit-Learn)</li>
+            <li>• Deep Learning (TensorFlow/Keras)</li>
+            <li>• Quantitative Finance Interests</li>
+            <li>• Advanced Python (Pandas, Numpy)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white">What I'm Doing Now</h2>
+      <p>
+        When I’m not analyzing Kenyan food price trends or building movie recommender systems, I’m deep in the <strong>LeetCode</strong> trenches—mastering stacks, queues, and linked lists to keep my algorithmic thinking sharp.
+      </p>
+      <p>
+        I'm currently looking for roles as a <strong>Junior Python Engineer</strong> or <strong>Junior Data Scientist</strong> where I can contribute to building high-impact, data-driven applications.
       </p>
 
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Skills & Technologies</h2>
-      <ul class="list-disc list-inside text-slate-600 dark:text-slate-400 mb-6 space-y-2">
-        <li>JavaScript / TypeScript</li>
-        <li>React, Astro, Vue</li>
-        <li>Node.js, Express</li>
-        <li>TailwindCSS, CSS3</li>
-        <li>Git & GitHub</li>
-        <li>Web Performance & SEO</li>
-      </ul>
-
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Interests</h2>
-      <p class="text-slate-600 dark:text-slate-400 mb-6">
-        Beyond coding, I'm interested in open source contributions, technical writing, and mentoring others in web development. When I'm not coding, you can find me exploring new tools, reading technical articles, or contributing to communities.
-      </p>
-
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-8 mb-4">Get In Touch</h2>
-      <p class="text-slate-600 dark:text-slate-400 mb-6">
-        Feel free to reach out if you have questions, collaboration ideas, or just want to chat about web development!
-      </p>
-      <div class="flex gap-4">
-        <a href="/contact" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition font-medium">
-          Contact Me
+      <div class="flex flex-wrap gap-4 mt-12 not-prose">
+        <a href="/contact" class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition font-bold shadow-lg shadow-blue-500/20">
+          Let's Collaborate
         </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="bg-slate-800 text-white px-4 py-2 rounded hover:bg-slate-900 transition font-medium">
-          GitHub
+        <a href="https://github.com/kobeyvines" target="_blank" class="flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-xl hover:opacity-90 transition font-bold">
+          See the Code
         </a>
       </div>
     </div>
   </main>
-
-  <Footer />
 </Layout>
