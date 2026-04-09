@@ -1,19 +1,22 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content'; // Added 'render' here
 import BlogLayout from '../../layouts/BlogLayout.astro';
 
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
   return blogEntries.map(entry => ({
-    params: { slug: entry.id.split('/').pop()?.replace(/\.(md|mdx)$/, '') || entry.id }, 
+    // Using entry.id is safer for matching the file system
+    params: { slug: entry.id }, 
     props: { entry },
   }));
 }
 
 // 2. Get the post data from props
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+
+// 3. FIX: Use the standalone render function instead of entry.render()
+const { Content } = await render(entry);
 ---
 
 <BlogLayout 
