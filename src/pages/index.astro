@@ -76,13 +76,16 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
           {featuredProjects.map(project => (
             <ProjectCard 
-              title={project.data.title}
-              description={project.data.description}
-              image={project.data.image}
-              link={project.data.link}
-              github={project.data.github}
-              tags={project.data.tags}
-            />
+            title={project.data.title}
+            description={project.data.description}
+            image={project.data.image}
+            link={project.data.link}
+            github={project.data.github}
+            tags={project.data.tags}
+            isFeatured={project.data.isFeatured}
+            /* ADD THIS LINE */
+            status={project.data.status} 
+          />
           ))}
         </div>
       </div>

@@ -1,8 +1,37 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Optional: Add a professional font like Inter or Serif */
-@theme {
-  --font-serif: "Charter", "Georgia", serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+@variant dark (&:where(.dark, .dark *));
+
+/* ... your @theme block ... */
+
+@layer utilities {
+  /* Standard CSS approach to avoid the 'InvalidCandidate' error */
+  .prose table {
+    display: block !important;
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    border-collapse: collapse;
+  }
+
+  .prose table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .prose table::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Manual color assignment instead of @apply */
+  .prose table::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1; /* slate-300 */
+    border-radius: 10px;
+  }
+
+  .dark .prose table::-webkit-scrollbar-thumb {
+    background-color: #334155; /* slate-700 */
+  }
+  
 }

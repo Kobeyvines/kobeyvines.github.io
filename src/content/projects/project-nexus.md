@@ -1,6 +1,7 @@
 ---
 title: ALX Project Nexus - E-Commerce Backend
 description: A fully functional backend system for a modern e-commerce application featuring user authentication, product inventory management, shopping cart operations, and order processing.
+status: "Live"
 image: https://images.unsplash.com/photo-1557821552-17105176677c?w=600&h=400&fit=crop
 link: https://ecommerce-backend-ga7o.onrender.com/api/schema/swagger-ui/
 github: https://github.com/Kobeyvines/alx_project_nexus_2.0

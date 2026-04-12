@@ -1,6 +1,7 @@
 ---
 title: Titanic Survival Prediction Pipeline
 description: An end-to-end Machine Learning pipeline predicting Titanic survival using a Voting Classifier (SVM + Random Forest). Features a FastAPI backend, Docker containerization, and a live web interface deployed on Render.
+status: "Live"
 image: https://images.unsplash.com/photo-1574687263812-a27e1c9e11ab?q=80&w=2435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dfit=crop
 link: https://titanic-dataset-1.onrender.com/
 github: https://github.com/Kobeyvines/Titanic_dataset

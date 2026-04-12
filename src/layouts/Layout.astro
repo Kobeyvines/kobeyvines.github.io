@@ -33,26 +33,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
 
     <title>{title}</title>
+
+    {/* SINGLE THEME SCRIPT: Consolidate and place at the end of head */}
     <script is:inline>
-      const theme = (() => {
+      const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'light';
-      })();
-    
-      if (theme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
+        // If you want strictly Light by default even if the user has Dark OS settings,
+        // return 'light' here. If you want to follow OS, keep matchMedia.
+        return 'light'; 
+      };
+
+      const isDark = getThemePreference() === 'dark';
+      document.documentElement.classList.toggle('dark', isDark);
+
+      if (typeof localStorage !== 'undefined') {
+        // Watch for changes to the 'dark' class and update localStorage
+        const observer = new MutationObserver(() => {
+          const isDarkNow = document.documentElement.classList.contains('dark');
+          localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
+        });
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
-      window.localStorage.setItem('theme', theme);
     </script>
   </head>
-  <body class="min-h-screen flex flex-col w-full overflow-x-hidden bg-white dark:bg-[#050505] text-slate-900 dark:text-slate-100 selection:bg-blue-100 dark:selection:bg-blue-900/30 transition-colors duration-300 font-sans">
+  <body class="min-h-screen flex flex-col w-full overflow-x-hidden bg-slate-50 dark:bg-[#050505] text-slate-900 dark:text-slate-100 selection:bg-blue-100 dark:selection:bg-blue-900/30 transition-colors duration-300 font-sans">
     <Header currentPath={Astro.url.pathname} />
     <main class="flex-grow w-full">
       <slot />
@@ -62,7 +68,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 </html>
 
 <style is:global>
-  /* FONT OVERRIDES FOR MEDIUM VIBE */
+  /* Keep your existing global styles here */
   :root {
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
     --font-serif: 'Lora', Georgia, serif;
@@ -73,33 +79,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Custom Scrollbar Logic ... */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb {
-    background: #e2e8f0;
-    border-radius: 10px;
-  }
-  .dark ::-webkit-scrollbar-thumb { background: #1e293b; }
-
-  code {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-  }
-  /* Fix for wide Data Science tables */
-.prose table {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  border-collapse: collapse;
-}
-
-/* Optional: Make the scrollbar thin and clean */
-.prose table::-webkit-scrollbar {
-  height: 4px;
-}
-.prose table::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 10px;
-}
+  /* ... rest of your scrollbar and table logic ... */
 </style>

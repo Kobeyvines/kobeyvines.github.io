@@ -26,6 +26,8 @@ const projects = defineCollection({
     github: z.string().optional(),
     tags: z.array(z.string()).optional(),
     featured: z.boolean().optional().default(false),
+    // ADD THIS LINE
+    status: z.enum(['Live', 'In Progress', 'Archived']).default('In Progress'),
   }),
 });
 

@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './ThemeToggle.astro'; // Import the toggle
+
 interface Props {
   currentPath?: string;
 }
@@ -13,7 +15,6 @@ const navItems = [
   { label: 'Contact', href: '/contact' },
 ];
 
-// Helper to determine active state more robustly (handles sub-paths like /blog/post-1)
 const isActive = (href: string) => {
   if (href === '/' && currentPath === '/') return true;
   return href !== '/' && currentPath.startsWith(href);
@@ -31,24 +32,28 @@ const isActive = (href: string) => {
       </span>
     </a>
 
-    <ul class="flex gap-4 md:gap-8 items-center">
-      {navItems.map(item => (
-        <li>
-          <a
-            href={item.href}
-            class={`relative py-1 text-sm md:text-base transition-all duration-300 ${
-              isActive(item.href)
-                ? 'text-blue-600 dark:text-blue-400 font-semibold'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
-          >
-            {item.label}
-            {isActive(item.href) && (
-              <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
-            )}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div class="flex items-center gap-6 md:gap-10">
+      <ul class="flex gap-4 md:gap-8 items-center">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class={`relative py-1 text-sm md:text-base transition-all duration-300 ${
+                isActive(item.href)
+                  ? 'text-blue-600 dark:text-blue-400 font-semibold'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              {item.label}
+              {isActive(item.href) && (
+                <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full" />
+              )}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <ThemeToggle />
+    </div>
   </nav>
 </header>

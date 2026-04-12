@@ -1,6 +1,7 @@
 ---
 title: Churn Prediction Model - Data Science Case Study
 description: A comprehensive data science case study focused on investigating, diagnosing and improving a churn prediction model for a leading mobile money platform
+status: "Archived"
 image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop
 link: https://github.com/Kobeyvines/CASE_STUDY
 github: https://github.com/Kobeyvines/CASE_STUDY

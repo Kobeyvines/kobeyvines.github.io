@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import Comments from '../components/Comments.astro'; // Import your new component
 
 interface Props {
   title: string;
@@ -51,6 +52,19 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
         prose-blockquote:text-2xl prose-blockquote:font-serif prose-blockquote:text-slate-500">
         <slot />
       </article>
-    </div>
+
+      <footer class="mt-20 pt-12 border-t border-slate-200 dark:border-slate-800 pb-24">
+        <div class="mb-10">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
+            Discussion
+          </h2>
+          <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            Have a question or a thought on this analysis? Leave a comment below via GitHub.
+          </p>
+        </div>
+        
+        <Comments />
+      </footer>
+      </div>
   </main>
 </Layout>
