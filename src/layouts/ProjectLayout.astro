@@ -13,48 +13,65 @@ interface Props {
 const { title, description, image, link, github, tags = [] } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <article>
-      <header class="mb-8">
+<Layout title={`${title} | Brian Kuria`} description={description}>
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-16"> <article>
+      <header class="mb-16">
         {image && (
-          <img src={image} alt={title} class="w-full h-96 object-cover rounded-lg mb-6" />
+          <div class="relative w-full h-[400px] mb-10 overflow-hidden rounded-3xl shadow-2xl">
+            <img src={image} alt={title} class="w-full h-full object-cover" />
+          </div>
         )}
-        <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">
-          {title}
-        </h1>
-        <p class="text-lg text-slate-600 dark:text-slate-400 mb-4">
-          {description}
-        </p>
-        {tags && tags.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-6">
-            {tags.map(tag => (
-              <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">
+        
+        <div class="flex items-center gap-2 mb-6">
+           {tags.map(tag => (
+              <span class="text-[10px] uppercase tracking-widest font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                 {tag}
               </span>
             ))}
-          </div>
-        )}
-        <div class="flex gap-4">
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+          {title}
+        </h1>
+        
+        <p class="text-xl text-slate-500 dark:text-slate-400 leading-relaxed mb-10 max-w-2xl">
+          {description}
+        </p>
+
+        <div class="flex flex-wrap gap-4">
           {link && (
-            <a href={link} target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-              View Project
+            <a href={link} target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all active:scale-95">
+              🚀 Live Demo
             </a>
           )}
           {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer" class="bg-slate-800 text-white px-4 py-2 rounded hover:bg-slate-900 transition">
-              View on GitHub
+            <a href={github} target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-6 py-3 rounded-xl font-bold hover:opacity-90 transition-all active:scale-95">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub Code
             </a>
           )}
         </div>
       </header>
-      <div class="prose dark:prose-invert max-w-none mb-8">
-        <slot />
+
+      <div class="prose prose-slate dark:prose-invert max-w-none 
+          font-serif text-lg
+          prose-headings:font-sans prose-headings:tracking-tight prose-headings:text-slate-900 dark:prose-headings:text-white
+          prose-p:leading-relaxed prose-p:text-slate-800 dark:prose-p:text-slate-200
+          prose-img:rounded-2xl prose-img:shadow-2xl prose-img:mx-auto
+          prose-code:text-indigo-600 dark:prose-code:text-indigo-400 prose-code:bg-slate-100 dark:prose-code:bg-slate-800/50 prose-code:before:content-[''] prose-code:after:content-['']
+          prose-pre:bg-slate-950 prose-pre:shadow-2xl
+          prose-table:block prose-table:overflow-x-auto prose-table:whitespace-nowrap
+          prose-th:text-xs prose-th:uppercase prose-th:tracking-wider prose-th:bg-slate-50 dark:prose-th:bg-slate-900/50">
+          <slot />
       </div>
     </article>
-    <hr class="my-12 border-slate-300 dark:border-slate-700" />
-    <a href="/projects" class="text-blue-600 dark:text-blue-400 hover:underline">
-      ← Back to Projects
-    </a>
+
+    <footer class="mt-20 pt-10 border-t border-slate-200 dark:border-slate-800">
+      <a href="/projects" class="group inline-flex items-center gap-2 font-bold text-slate-600 dark:text-slate-400 hover:text-blue-600 transition-colors">
+        <span class="group-hover:-translate-x-1 transition-transform">←</span> Back to Projects
+      </a>
+    </footer>
   </main>
 </Layout>

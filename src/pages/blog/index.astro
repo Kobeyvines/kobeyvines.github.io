@@ -13,37 +13,42 @@ const posts = (await getCollection('blog')).sort(
   title="Blog | Brian Kuria" 
   description="Technical insights on Data Science, Python engineering, and AWS Cloud Architecture."
 >
-  <div class="w-full flex flex-col items-center">
-    
-    <main class="w-full max-w-6xl mx-auto px-4 py-20">
-      
-      <header class="max-w-3xl mb-16">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-          Engineering <span class="text-blue-600 dark:text-blue-400">Insights</span>
-        </h1>
-        <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-          Documenting my journey through <strong>data science pipelines</strong>, cloud infrastructure, and the occasional <strong>LeetCode</strong> challenge.
-        </p>
+  <div class="w-full">
+    <div class="w-full bg-gradient-to-b from-slate-50 dark:from-slate-900/50 to-transparent">
+      <header class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+        <div class="max-w-3xl">
+          <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
+            Engineering <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400">Insights</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+            Documenting my journey through <span class="font-semibold text-slate-900 dark:text-white">data science pipelines</span>, cloud infrastructure, and the occasional technical deep-dive.
+          </p>
+        </div>
       </header>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
-        {posts.map((post) => (
-          <BlogPostCard
-            title={post.data.title}
-            description={post.data.description}
-            date={post.data.date}
-            id={post.id}
-            tags={post.data.tags}
-          />
-        ))}
-      </div>
-
-      {posts.length === 0 && (
-        <div class="w-full py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-3xl">
-          <p class="text-slate-500 italic text-lg">No insights published yet. Check back soon!</p>
+    </div>
+    
+    <main class="w-full max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+      {posts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
+          {posts.map((post) => (
+            <BlogPostCard
+              id={post.id}
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              tags={post.data.tags}
+              readingTime={post.data.readingTime}  />
+          ))}
+        </div>
+      ) : (
+        <div class="w-full py-24 text-center">
+          <div class="inline-flex flex-col items-center gap-4">
+            <div class="text-5xl">📝</div>
+            <p class="text-lg text-slate-600 dark:text-slate-400">No articles published yet.</p>
+            <p class="text-sm text-slate-500 dark:text-slate-500">Check back soon for new insights!</p>
+          </div>
         </div>
       )}
-
     </main>
   </div>
 </Layout>

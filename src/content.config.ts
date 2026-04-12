@@ -6,8 +6,12 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    date: z.date(),
+    // Use coerce to handle date strings from Obsidian/Python
+    date: z.coerce.date(), 
     tags: z.array(z.string()).optional(),
+    // ADD THESE THREE LINES
+    readingTime: z.string().optional(),
+    status: z.string().optional(),
     draft: z.boolean().optional().default(false),
   }),
 });

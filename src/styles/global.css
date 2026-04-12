@@ -1,1 +1,8 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Optional: Add a professional font like Inter or Serif */
+@theme {
+  --font-serif: "Charter", "Georgia", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}

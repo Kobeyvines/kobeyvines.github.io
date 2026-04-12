@@ -7,8 +7,14 @@ import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects');
 const allBlogPosts = await getCollection('blog');
 
+// Filter featured projects
 const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 3);
-const recentBlogPosts = allBlogPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 3);
+
+// Sort blog posts by date and take the latest 3
+// We name this latestPosts to match the reference in your HTML below
+const latestPosts = allBlogPosts
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 
 const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "PostgreSQL", "TensorFlow"];
 ---
@@ -82,7 +88,7 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
       </div>
     </section>
 
-    {/* Recent Blog Posts - ADDED PB-32 TO PUSH FOOTER AWAY */}
+    {/* Recent Blog Posts */}
     <section class="w-full max-w-6xl mx-auto px-4 pt-24 pb-32 clear-both">
       <div class="flex justify-between items-end mb-12">
         <div>
@@ -95,13 +101,14 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
       </div>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-        {recentBlogPosts.map(post => (
-          <BlogPostCard 
+        {latestPosts.map((post) => (
+          <BlogPostCard
+            id={post.id}
             title={post.data.title}
             description={post.data.description}
             date={post.data.date}
-            id={post.id}
             tags={post.data.tags}
+            readingTime={post.data.readingTime} 
           />
         ))}
       </div>
