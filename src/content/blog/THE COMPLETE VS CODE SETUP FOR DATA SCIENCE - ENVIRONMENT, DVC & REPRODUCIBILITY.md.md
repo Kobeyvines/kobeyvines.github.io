@@ -86,7 +86,7 @@ _Replace_ **_<your_environment_name>_** _with the actual name of the environment
 
 Once your environment is activated, you’ll notice its name appear in parentheses at the beginning of your terminal prompt.
 
-![image](/images/blog/Pasted image 20260530104936.png)*This means that you’re now working inside that specific Conda environment, and any commands you run or packages you install will apply only to it.*
+![png](/images/blog/Pasted_image_20260530104936.png)*This means that you’re now working inside that specific Conda environment, and any commands you run or packages you install will apply only to it.*
 
 3. **Install Essential packages**
 
@@ -147,7 +147,7 @@ At this point, you can list all your Conda environments using the following comm
 conda info --env
 ```
 
-![image](/images/blog/Pasted image 20260530110011.png)
+![png](/images/blog/Pasted_image_20260530110011.png)
 
 ## Git and Repository Hygiene
 
@@ -195,7 +195,7 @@ git commit -m "Initial commit"
 3. Leave “Initialise with README” **unchecked** (you already have files locally).  
 4. Click **Create repository**.
 
-![image](/images/blog/Pasted image 20260530114349.png)
+![png](/images/blog/Pasted_image_20260530114349.png)
 
 **Connect local repo to GitHub**  
 GitHub will show you a few commands after creating the repo; use the HTTPS version, and copy the URL provided:  
@@ -622,8 +622,7 @@ if conn:
 The data is seamlessly fetched from PostgreSQL and formatted directly inside your notebook!
 
 The Output:
-![image](/images/blog/Pasted image 20260530140737.png)
-
+![png](/images/blog/Pasted_image_20260530140737.png)
 
 # Locking Down Reproducibility
 
