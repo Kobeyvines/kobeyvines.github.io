@@ -32,13 +32,13 @@ const isActive = (href: string) => {
       </span>
     </a>
 
-    <div class="flex items-center gap-6 md:gap-10">
-      <ul class="flex gap-4 md:gap-8 items-center">
+    <div class="flex items-center gap-3 sm:gap-6 md:gap-10">
+      <ul class="flex gap-2 sm:gap-4 md:gap-8 items-center">
         {navItems.map(item => (
           <li>
             <a
               href={item.href}
-              class={`relative py-1 text-sm md:text-base transition-all duration-300 ${
+              class={`relative py-1 text-xs sm:text-sm md:text-base transition-all duration-300 ${
                 isActive(item.href)
                   ? 'text-blue-600 dark:text-blue-400 font-semibold'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
