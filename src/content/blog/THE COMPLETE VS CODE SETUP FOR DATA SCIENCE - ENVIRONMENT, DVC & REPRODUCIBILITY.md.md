@@ -48,6 +48,8 @@ Ensure all required tools above are installed and properly configured.
 | **Database**                                 | Helps connect and query databases within VS Code       |     |
 | **Data Wrangler**                            | Lets you explore and clean data directly in VS Code    |     |
 | **Remote - SSH / Dev Containers (optional)** | Work inside containers or remote servers               |     |
+|----------------------------------------------|--------------------------------------------------------|-----|
+
 **NOTE**
 
 DBeaver is not a database replacement; it’s a **universal database management tool**. Here’s why developers and data engineers prefer it:
@@ -457,7 +459,7 @@ Open your terminal and connect to your database engine as an administrative
 ```
 psql -U <db_user>
 ```
-> Replace **<db_user>** with the name of the database you’d like to create.
+> Replace <user> with the name of your postgres user with elevated privillages.
 
 Optional)Use this command when you want to connect to a remote host/port.
 ```

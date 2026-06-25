@@ -1,54 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-
-<Layout title="About Brian Kuria | Cloud & Data Science" description="The journey from Information Technology to Cloud Architecture and Data Science.">
+<Layout title="About Brian Kuria | ML Engineer & Data Scientist" description="From IT infrastructure to production ML engineering — building systems that are accurate, observable, and built to ship.">
   <main class="max-w-3xl mx-auto px-4 py-20">
     <header class="mb-12">
       <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-        The bridge between <span class="text-blue-600 dark:text-blue-400">infrastructure</span> and <span class="text-cyan-500">intelligence.</span>
+        From infrastructure to <span class="text-blue-600 dark:text-blue-400">intelligence</span> — built to <span class="text-cyan-500">ship both.</span>
       </h1>
       <p class="text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-        I’m an IT professional turned Data Scientist. My goal is to build machine learning systems that are not just accurate, but production-ready and scalable.
+        I'm an ML engineer who started in cloud infrastructure. My goal is to build machine learning systems that aren't just accurate in notebooks — but precise, observable, and production-ready.
       </p>
     </header>
-    
+
     <div class="prose prose-slate dark:prose-invert max-w-none">
       <h2 class="text-2xl font-bold text-slate-900 dark:text-white">The Journey</h2>
       <p>
-        With a degree in <strong>Information Technology</strong>, I started with a deep fascination for how systems scale. This led me to become an <strong>AWS Certified Solutions Architect & Practitioner</strong>, where I learned to build the "pipes" that run the modern web.
+        I started with a degree in <strong>Information Technology</strong> and a fascination for how systems hold together under load. That led me to dual <strong>AWS certifications</strong> as a Solutions Architect and Cloud Practitioner — I didn't just want to build the pipes; I wanted to understand what was flowing through them.
       </p>
       <p>
-        However, I realized that the most exciting part of the infrastructure wasn't just the scaling—it was the data flowing through it. This sparked my transition into <strong>Data Science</strong> through the <strong>ALX Data Science program</strong>, where I began applying statistical rigor to real-world problems.
+        That curiosity pulled me into data science through the <strong>ALX Africa x Explore AI Academy</strong> program, where statistical modeling and machine learning replaced infrastructure diagrams on my whiteboard. Then a production incident sharpened everything.
       </p>
 
+      <!-- Churn audit callout -->
+      <div class="not-prose my-8 border-l-4 border-cyan-500 pl-5 py-3 bg-cyan-50 dark:bg-cyan-950/40 rounded-r-xl">
+        <p class="text-slate-800 dark:text-slate-200 text-base leading-relaxed">
+          Auditing an M-Pesa churn model, I found a <strong>36-point precision gap</strong> between reported training accuracy (87%) and real-world performance — causing 66% false positives and a 91% campaign failure rate. That gap is what I now engineer against.
+        </p>
+      </div>
+
+      <p>
+        Today I'm a data science mentee at <strong>Phoenix Analytics Africa</strong>, collaborating with a team of analysts on predictive models, data pipelines, and deployment challenges — while independently deepening my production ML engineering skills across FastAPI, Docker, and MLOps.
+      </p>
+
+      <!-- Skills grid — 4 cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 not-prose my-12">
         <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-2">Cloud Mastery</h3>
+          <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-3">ML & Modeling</h3>
           <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
-            <li>• AWS Certified Solutions Architect</li>
-            <li>• Scalable Backend Architectures</li>
-            <li>• FastAPI & API Deployment</li>
-            <li>• PostgreSQL & Database Design</li>
+            <li>• Scikit-Learn, TensorFlow/Keras, XGBoost</li>
+            <li>• Feature engineering & EDA</li>
+            <li>• Model evaluation & precision auditing</li>
+            <li>• Statistical modeling & data preprocessing</li>
           </ul>
         </div>
         <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-          <h3 class="font-bold text-cyan-600 dark:text-cyan-400 mb-2">Data Science</h3>
+          <h3 class="font-bold text-cyan-600 dark:text-cyan-400 mb-3">Engineering & Deployment</h3>
           <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
-            <li>• Predictive Modeling (Scikit-Learn)</li>
-            <li>• Deep Learning (TensorFlow/Keras)</li>
-            <li>• Quantitative Finance Interests</li>
-            <li>• Advanced Python (Pandas, Numpy)</li>
+            <li>• FastAPI & RESTful API design</li>
+            <li>• Docker & Kubernetes</li>
+            <li>• CI/CD (Travis CI, GitHub Actions)</li>
+            <li>• Django & Django REST Framework</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-3">Cloud & Infrastructure</h3>
+          <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
+            <li>• AWS Certified Solutions Architect</li>
+            <li>• AWS Certified Cloud Practitioner</li>
+            <li>• Linux systems & scalable architecture</li>
+            <li>• PostgreSQL & MySQL</li>
+          </ul>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-cyan-600 dark:text-cyan-400 mb-3">Data & Analytics</h3>
+          <ul class="text-sm space-y-2 text-slate-600 dark:text-slate-400">
+            <li>• Python — Pandas, NumPy, SQL</li>
+            <li>• Power BI & data visualization</li>
+            <li>• Pipeline design & data quality</li>
+            <li>• Go, C++</li>
           </ul>
         </div>
       </div>
 
       <h2 class="text-2xl font-bold text-slate-900 dark:text-white">What I'm Doing Now</h2>
       <p>
-        When I’m not analyzing Kenyan food price trends or building movie recommender systems, I’m deep in the <strong>LeetCode</strong> trenches—mastering stacks, queues, and linked lists to keep my algorithmic thinking sharp.
+        Right now I'm building a <strong>YouTube trending video analysis pipeline</strong> — a Kenya-vs-global comparison using PostgreSQL, Python, and a GPU-accelerated translation pipeline — while continuing mentorship work focused on forecasting, fraud detection, and recommendation systems.
       </p>
       <p>
-        I'm currently looking for roles as a <strong>Junior Python Engineer</strong> or <strong>Junior Data Scientist</strong> where I can contribute to building high-impact, data-driven applications.
+        I'm open to roles as a <strong>Machine Learning Engineer</strong> or <strong>Python / Data Engineer</strong> — particularly where production reliability, model observability, and measurable impact matter.
       </p>
 
       <div class="flex flex-wrap gap-4 mt-12 not-prose">
