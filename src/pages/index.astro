@@ -11,7 +11,6 @@ const allBlogPosts = await getCollection('blog');
 const featuredProjects = allProjects.filter(p => p.data.featured).slice(0, 3);
 
 // Sort blog posts by date and take the latest 3
-// We name this latestPosts to match the reference in your HTML below
 const latestPosts = allBlogPosts
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 3);
@@ -19,7 +18,7 @@ const latestPosts = allBlogPosts
 const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "PostgreSQL", "TensorFlow"];
 ---
 
-<Layout title="Brian Kuria | Data Scientist & Cloud Architect" description="AWS Certified Solutions Architect and Data Scientist specialized in predictive modeling and scalable infrastructure.">
+<Layout title="Brian Kuria | ML Engineer & Python Developer" description="ML Engineer and AWS Certified Solutions Architect specializing in production-grade machine learning systems, model evaluation, and data pipelines.">
   
   <div class="w-full flex flex-col items-center">
     
@@ -35,11 +34,11 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
         </div>
         
         <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight leading-tight text-left">
-          Solving complex problems with <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Data & Cloud.</span>
+          Models that work <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">in production,</span> not just notebooks.
         </h1>
         
         <p class="text-base sm:text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed text-left">
-          I’m <span class="text-slate-900 dark:text-white font-semibold">Brian Kuria</span>, an AWS Certified Solutions Architect and Data Scientist. I build intelligent systems that don't just predict the future, but scale to meet it.
+          I'm <span class="text-slate-900 dark:text-white font-semibold">Brian Kuria</span>, an ML Engineer and AWS Certified Solutions Architect based in Nairobi. I build precise, observable, production-ready machine learning systems — and the backend infrastructure to run them.
         </p>
         
         <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-start">
@@ -66,7 +65,7 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
         <div class="flex justify-between items-end mb-12">
           <div>
             <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Selected Projects</h2>
-            <p class="text-slate-600 dark:text-slate-400">Deployed models and cloud architecture case studies.</p>
+            <p class="text-slate-600 dark:text-slate-400">Deployed ML pipelines, APIs, and data engineering case studies.</p>
           </div>
           <a href="/projects" class="hidden md:block text-sm font-bold text-blue-600 dark:text-blue-400 hover:translate-x-1 transition-transform">
             View all projects →
@@ -83,7 +82,6 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
             github={project.data.github}
             tags={project.data.tags}
             isFeatured={project.data.isFeatured}
-            /* ADD THIS LINE */
             status={project.data.status} 
           />
           ))}
@@ -96,7 +94,7 @@ const techStack = ["Python", "AWS", "FastAPI", "Scikit-Learn", "Pandas", "Postgr
       <div class="flex justify-between items-end mb-12">
         <div>
           <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Latest Insights</h2>
-          <p class="text-slate-600 dark:text-slate-400">Deep dives into Data Science, Python engineering, and AWS.</p>
+          <p class="text-slate-600 dark:text-slate-400">Deep dives into machine learning, Python engineering, and data pipelines.</p>
         </div>
         <a href="/blog" class="hidden md:block text-sm font-bold text-blue-600 dark:text-blue-400 hover:translate-x-1 transition-transform">
           Read the blog →
