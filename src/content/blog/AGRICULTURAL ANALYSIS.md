@@ -20,8 +20,6 @@ title: AGRICULTURAL ANALYSIS USING THE KAGGLE CROP RECOMMENDATION DATASET
 
 ## Crop Recommendation Engine
 
-Data Science Internship Technical Assessment
-
 Prepared for: the client
 
 Submission: Jupyter Notebook, Cleaned Dataset, PDF Report, README
@@ -105,9 +103,9 @@ Testing with the provided example (N=85, P=40, K=50, pH=6.5, rainfall=120 mm), t
 ## Test-Set and Validation Performance
 
 On the 440-row test set, the pipeline achieved 97.50% Top-1 accuracy and 99.77% Top-3 accuracy, mirroring how farmers utilize a shortlist of options. The weighted F1-score is 0.97. No specific class performed poorly; the lowest-recall categories (lentil, mothbeans, jute, and rice) were only confused with agronomically similar neighbors, as evidenced in the confusion matrix.
-![png](/images/blog/08_confusion_matrix.png)
-*Figure 5. Accuracy across 5 stratified CV folds.*
 ![png](/images/blog/09_cross_validation.png)
+*Figure 5. Accuracy across 5 stratified CV folds.*
+![png](/images/blog/08_confusion_matrix.png)
 *Figure 4. Confusion matrix (440-row test set, 22*
 
 *classes).*
