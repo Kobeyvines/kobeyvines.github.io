@@ -48,8 +48,6 @@ Ensure all required tools above are installed and properly configured.
 | **Database**                                 | Helps connect and query databases within VS Code       |     |
 | **Data Wrangler**                            | Lets you explore and clean data directly in VS Code    |     |
 | **Remote - SSH / Dev Containers (optional)** | Work inside containers or remote servers               |     |
-|----------------------------------------------|--------------------------------------------------------|-----|
-
 **NOTE**
 
 DBeaver is not a database replacement; it’s a **universal database management tool**. Here’s why developers and data engineers prefer it:
@@ -88,7 +86,7 @@ _Replace_ **_<your_environment_name>_** _with the actual name of the environment
 
 Once your environment is activated, you’ll notice its name appear in parentheses at the beginning of your terminal prompt.
 
-![png](/images/blog/Pasted_image_20260530104936.png)*This means that you’re now working inside that specific Conda environment, and any commands you run or packages you install will apply only to it.*
+![image](/images/blog/Pasted image 20260530104936.png)*This means that you’re now working inside that specific Conda environment, and any commands you run or packages you install will apply only to it.*
 
 3. **Install Essential packages**
 
@@ -149,7 +147,7 @@ At this point, you can list all your Conda environments using the following comm
 conda info --env
 ```
 
-![png](/images/blog/Pasted_image_20260530110011.png)
+![image](/images/blog/Pasted image 20260530110011.png)
 
 ## Git and Repository Hygiene
 
@@ -197,7 +195,7 @@ git commit -m "Initial commit"
 3. Leave “Initialise with README” **unchecked** (you already have files locally).  
 4. Click **Create repository**.
 
-![png](/images/blog/Pasted_image_20260530114349.png)
+![image](/images/blog/Pasted image 20260530114349.png)
 
 **Connect local repo to GitHub**  
 GitHub will show you a few commands after creating the repo; use the HTTPS version, and copy the URL provided:  
@@ -459,7 +457,7 @@ Open your terminal and connect to your database engine as an administrative
 ```
 psql -U <db_user>
 ```
-> Replace <user> with the name of your postgres user with elevated privillages.
+> Replace **<db_user>** with the name of the database you’d like to create.
 
 Optional)Use this command when you want to connect to a remote host/port.
 ```
@@ -624,7 +622,8 @@ if conn:
 The data is seamlessly fetched from PostgreSQL and formatted directly inside your notebook!
 
 The Output:
-![png](/images/blog/Pasted_image_20260530140737.png)
+![image](/images/blog/Pasted image 20260530140737.png)
+
 
 # Locking Down Reproducibility
 

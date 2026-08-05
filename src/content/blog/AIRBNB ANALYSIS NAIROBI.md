@@ -11,7 +11,7 @@ tags:
 title: Nairobi Airbnb Market Analysis
 ---
 
-# IMPORTING ALL DEPENDENCIES I NEED FOR THIS PROJECT
+`# IMPORTING ALL DEPENDENCIES I NEED FOR THIS PROJECT
 
 
 ```python
