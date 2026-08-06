@@ -15,11 +15,11 @@ tags:
 - machinelearning
 - crops
 - agronomy
-title: AGRICULTURAL ANALYSIS USING THE KAGGLE CROP RECOMMENDATION DATASET
+title: 'Predicting the Best Crops: A Machine Learning Approach Using the Kaggle Crop
+  Recommendation Dataset.'
 ---
 
 ## Crop Recommendation Engine
-
 Prepared for: the client
 
 Submission: Jupyter Notebook, Cleaned Dataset, PDF Report, README
@@ -76,14 +76,14 @@ Why it matters: No crop is defined by a single dominant feature — each has a d
 
 To enhance the model's predictive power, three specific features were engineered, each computable from data the project already collects, such as routine soil tests and weather readings. Two of these, the NPK Score and the Climate Suitability Index, depend on dataset-wide statistics. To ensure a robust evaluation, the cleaned data was split 80/20 (stratified) before any such statistic was computed. This methodological rigor prevents test-set information from leaking into training, ensuring that the model's performance metrics are a true reflection of its ability to generalize to unseen agricultural data.
 
-| Feature | Formula | Why it helps |
-| --- | --- | --- |
-| NPK Score | (N_scaled + P_scaled + K_scaled) / 3 | Summarizes overall soil fertility in one value, |
-|   |   | complementing raw N/P/K. |
-| Climate Suitability Index | (Z_temp + Z_humidity + Z_rainfall) / 3 | Summarizes climate fit; separates crops with similar soil |
-|   |   | but different weather needs. |
-| Soil Suitability Category | Acidic <6.5 · Neutral 6.5–7.5 · Alkaline >7.5 | Converts pH into farmer-familiar soil classes without |
-|   |   | discarding the raw value. |
+| Feature                   | Formula                                       | Why it helps                                              |
+| ------------------------- | --------------------------------------------- | --------------------------------------------------------- |
+| NPK Score                 | (N_scaled + P_scaled + K_scaled) / 3          | Summarizes overall soil fertility in one value,           |
+|                           |                                               | complementing raw N/P/K.                                  |
+| Climate Suitability Index | (Z_temp + Z_humidity + Z_rainfall) / 3        | Summarizes climate fit; separates crops with similar soil |
+|                           |                                               | but different weather needs.                              |
+| Soil Suitability Category | Acidic <6.5 · Neutral 6.5–7.5 · Alkaline >7.5 | Converts pH into farmer-familiar soil classes without     |
+|                           |                                               | discarding the raw value.                                 |
 
 All three are implemented in a custom AgronomicFeatureEngineer transformer whose fit() learns statistics only from the data it receives, and whose transform() applies them, making it safe to reuse inside cross-validation folds, each of which computes its own parameters independently.
 
